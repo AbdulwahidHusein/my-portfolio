@@ -1,6 +1,7 @@
 import projectData from "./projectsData.json";
 import Project from "../../components/Project";
 import PageHeader from "../../components/PageHeader";
+let l = [0,9]
 
 const Portfolio = () => {
   const ProjectList = () =>

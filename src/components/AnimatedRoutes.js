@@ -5,8 +5,9 @@ import About from "../pages/about/About";
 import Portfolio from "../pages/portfolio/Portfolio";
 import Contact from "../pages/contact/Contact";
 import PageNotFound from "../pages/404/PageNotFound";
+import Blog from "../pages/blog/blog";
 
-const AnimatedRoutes = ({ personalDetails }) => {
+const AnimatedRoutes = ({ personalDetails}) => {
   const location = useLocation();
 
   return (
@@ -25,6 +26,7 @@ const AnimatedRoutes = ({ personalDetails }) => {
         }
       />
       <Route path="/portfolio" element={<Portfolio />} />
+      <Route path="/blog" element={<Blog posts={personalDetails.posts}/>} />
       <Route
         path="/contact"
         element={
@@ -33,6 +35,7 @@ const AnimatedRoutes = ({ personalDetails }) => {
       />
       <Route path="/page-not-found" element={<PageNotFound />} />
       <Route path="*" element={<Navigate to="/page-not-found" />} />
+      <Route path="company" element={<Navigate to="/page-not-found" />} />
     </Routes>
   );
 };

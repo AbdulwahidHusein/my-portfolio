@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
-import landingImage from "../../images/me.svg";
+import landingImage from "../../images/aboutme.png";
 import Draw from "../../components/Draw";
 import SocialIcons from "../../components/SocialIcons";
 

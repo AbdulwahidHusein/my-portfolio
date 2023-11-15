@@ -19,6 +19,7 @@ const Contact = ({ name, email, location }) => {
       </div>
       <SocialIcons />
     </section>
+    //what is chat gpt?
   );
 };
 
