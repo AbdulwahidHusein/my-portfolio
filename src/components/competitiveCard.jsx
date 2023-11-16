@@ -4,12 +4,12 @@ import Modal from "react-modal";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-const CompetitiveStatus = ({color, id, companyName, companyLogo, totalSubmissions, TotalCorrectSubmissions,  rank, link
+const CompetitiveStatus = ({color, id, companyName, companyLogo,totalAcceptedSubmissions, totalSubmissions, TotalCorrectSubmissions,  rank, link
 }) => {
   const [score, setScore] = useState(0);
   useEffect(
     ()=>{
-      if (score <= totalSubmissions)
+      if (score <= totalAcceptedSubmissions)
       setTimeout(setScore(score+1), 1000)
     },[score]
   )
