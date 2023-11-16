@@ -6,6 +6,7 @@ import Portfolio from "../pages/portfolio/Portfolio";
 import Contact from "../pages/contact/Contact";
 import PageNotFound from "../pages/404/PageNotFound";
 import Blog from "../pages/blog/blog";
+import PlatformData from "../pages/Competitive/competitive";
 
 const AnimatedRoutes = ({ personalDetails}) => {
   const location = useLocation();
@@ -25,6 +26,7 @@ const AnimatedRoutes = ({ personalDetails}) => {
           />
         }
       />
+      <Route path="/competitive" element={<PlatformData/>} />
       <Route path="/portfolio" element={<Portfolio />} />
       <Route path="/blog" element={<Blog posts={personalDetails.posts}/>} />
       <Route
@@ -35,7 +37,7 @@ const AnimatedRoutes = ({ personalDetails}) => {
       />
       <Route path="/page-not-found" element={<PageNotFound />} />
       <Route path="*" element={<Navigate to="/page-not-found" />} />
-      <Route path="company" element={<Navigate to="/page-not-found" />} />
+      
     </Routes>
   );
 };

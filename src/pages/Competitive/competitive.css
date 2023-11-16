@@ -1,0 +1,65 @@
+
+  .Companycard {
+    color: white;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.5s ease-in-out;
+    flex-direction: column;
+    padding: 0 !important;
+    cursor: pointer;
+  }
+  
+  .row {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .textWrap {
+    transition: all 0.9s ease-in-out;
+    z-index: 1;
+  }
+  .companyImageContainer img {
+    height: 12em;
+    width:12em;
+    border-radius: 6em;
+    margin-top: 25px;
+    transition: all 1.3s ease-in-out;
+    position: relative;
+    right:50px;
+  }
+  
+  
+  .totalSubmission {
+    font-size: 19px;
+  }
+  
+  .companyName {
+    font-size: 24px;
+    padding: 10px 0;
+  }
+  
+  
+  /* --- MEDIA QUEIRES --- */
+  
+  @media (min-width: 750px) {
+
+  
+    .companyImageContainer {
+      transform: translateX(30%);
+      transition: all 0.3s ease-in-out;
+    }
+  
+
+  
+    .companyImageContainer {
+      transform: translateX(30%);
+      transition: all 0.3s ease-in-out;
+    }
+  
+    .textWrap {
+      text-shadow: none;
+    }
+  }
+  

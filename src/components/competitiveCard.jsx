@@ -1,17 +1,21 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Modal from "react-modal";
-import { useState } from "react";
-import closeModal from "../images/close.svg";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
-const CompetitiveStatus = ({ technologies, title, image, color, id, github, deployed, description,
-companyName, companyLogo, totalSubmissions, rank, link
-
+const CompetitiveStatus = ({color, id, companyName, companyLogo, totalSubmissions, TotalCorrectSubmissions,  rank, link
 }) => {
+  const [score, setScore] = useState(0);
+  useEffect(
+    ()=>{
+      if (score <= totalSubmissions)
+      setTimeout(setScore(score+1), 1000)
+    },[score]
+  )
   const [ref, inView] = useInView({
     threshold: 0.5,
-    triggerOnce: true,
+    triggerOnce: false,
   });
 
   const variants = {
@@ -21,10 +25,6 @@ companyName, companyLogo, totalSubmissions, rank, link
 
   Modal.setAppElement("#root");
 
-  const [showModal, setShowModal] = useState(false);
-  const handleOpenModal = () => setShowModal(true);
-  const handleCloseModal = () => setShowModal(false);
-
   return (
     <motion.div
       ref={ref}
@@ -32,55 +32,25 @@ companyName, companyLogo, totalSubmissions, rank, link
       variants={variants}
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
-      transition={{ duration: 0.4, ease: "easeInOut" }}
+      transition={{ duration: 0.54, ease: "easeInOut" }}
     >
+      <Link to={link} style={{"textDecoration":"None"}}>
       <div
         style={{ backgroundColor: color }}
-        className="projectCard d-flex align-items-center justify-content-center p-5"
-        onClick={handleOpenModal}
+        className="Companycard d-flex align-items-center justify-content-center"
+      
       >
-        <div className="textWrap col-6 d-flex flex-column justify-content-center align-items-center m-5">
-          <p className="tech">
-            <em><Link to={technologies}> </Link></em>
-          </p>
-          <h3 className="projectTitle">{companyName}</h3>
-          <span className="viewWork">View Profile &#8594;</span>
-        </div>
-        <div className="imageContainer col-6 d-flex align-items-center justify-content-center">
+        <div className="companyImageContainer">
           <img src={companyLogo} alt={companyName} />
         </div>
+        <div className="textWrap col-6 d-flex flex-column justify-content-center align-items-center m-5">
+          <h3 className="companyName">{companyName}</h3>
+          <span className="totalSubmission">Total submissions: {totalSubmissions}</span>
+          <span className="totalSubmission">Total Correct Submissions: {score}</span>
+          <span className="totalSubmission">Rank : {rank}</span>
+        </div>
       </div>
-      <Modal
-        isOpen={showModal}
-        onRequestClose={handleCloseModal}
-        style={{
-          content: {
-            backgroundColor: "#101010",
-            color: "#9f9f9f",
-            padding: "60px",
-            display: "flex",
-            flexDirection: "column",
-            width: "400px",
-            top: "50%",
-            left: "50%",
-            right: "auto",
-            bottom: "auto",
-            marginRight: "-50%",
-            transform: "translate(-50%, -50%)",
-            zIndex: "999",
-          },
-        }}
-      >
-        <img src={closeModal} className="closeMenu closeModal" onClick={handleCloseModal} alt="Close"></img>
-        <h3 className="modalTitle">{title}</h3>
-        <p className="projectDescription">{description}</p>
-        <button className="btn" onClick={() => (window.location.href = github)}>
-          GitHub Repo
-        </button>
-        <button className="btn" onClick={() => (window.location.href = deployed)}>
-          Live Link
-        </button>
-      </Modal>
+      </Link>
     </motion.div>
   );
 };
