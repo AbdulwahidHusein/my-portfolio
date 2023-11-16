@@ -28,7 +28,7 @@ const AnimatedRoutes = ({ personalDetails}) => {
       />
       <Route path="/competitive" element={<PlatformData/>} />
       <Route path="/portfolio" element={<Portfolio />} />
-      <Route path="/blog" element={<Blog posts={personalDetails.posts}/>} />
+      {/*<Route path="/blog" element={<Blog posts={personalDetails.posts}/>} />*/}
       <Route
         path="/contact"
         element={
