@@ -2,61 +2,65 @@ import CompetitiveStatus from "../../components/competitiveCard";
 import "./competitive.css";
 import { useState, useEffect } from "react";
 import { leetcode, codeforces } from "./utils";
-const axios = require("axios");
+import axios from "axios";
 
-let platformsData = [
+const platformsData = [
   // Initial data
   {
     company: "Hacker Rank",
-    profileLink: "leetode.com/abdul.com",
+    profileLink: "https://www.hackerrank.com/profile/abdulwahidhusse1",
     rank: "50000",
-    totalSubmissions: "1000",
-    totalAcceptedSubmissions: "500",
+    totalSubmissions: "-",
+    totalAcceptedSubmissions: "-",
     companyLogo: "./companyImages/hackerrank.png",
   },
   {
     company: "Open Katties",
-    profileLink: "leetode.com/abdul.com",
+    profileLink: "https://leetode.com/abdul.com",
     rank: "50000",
-    totalSubmissions: "1000",
-    totalAcceptedSubmissions: "500",
+    totalSubmissions: "-",
+    totalAcceptedSubmissions: "-",
     companyLogo: "./companyImages/katties.png",
   },
 ];
 
 function PlatformData() {
   const [dataFetched, setDataFetched] = useState(false);
+  const [renderedPlatforms, setRenderedPlatforms] = useState([]);
 
   useEffect(() => {
-    leetcode("AbdulwahidHussen")
-      .then((data) => {
-        platformsData.unshift(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    codeforces().then(
-      (data) =>{
-        platformsData.unshift(data);
-        setDataFetched(true);
-      }
-    )
+    const fetchData = async () => {
+      const [leetcodeData, codeforcesData] = await Promise.all([
+        leetcode("AbdulwahidHussen"),
+        codeforces(),
+      ]);
+
+      const updatedData = [leetcodeData, codeforcesData, ...platformsData];
+      setRenderedPlatforms(updatedData);
+      setDataFetched(true);
+    };
+
+    fetchData();
   }, []);
 
-  const platFormList = platformsData.map((data, i) => (
-    <CompetitiveStatus
-      color="#171616"
-      id={i}
-      companyName={data.company}
-      companyLogo={data.companyLogo}
-      totalSubmissions={data.totalSubmissions}
-      totalAcceptedSubmissions={data.totalAcceptedSubmissions}
-      rank={data.rank}
-      link={data.profileLink}
-    />
-  ));
-
-  return <div className="row">{dataFetched && platFormList}</div>;
+  return (
+    <div className="row">
+      {dataFetched &&
+        renderedPlatforms.map((data, i) => (
+          <CompetitiveStatus
+            key={i}
+            color="#171616"
+            id={i}
+            companyName={data.company}
+            companyLogo={data.companyLogo}
+            totalSubmissions={data.totalSubmissions}
+            totalAcceptedSubmissions={data.totalAcceptedSubmissions}
+            rank={data.rank}
+            link={data.profileLink}
+          />
+        ))}
+    </div>
+  );
 }
 
 export default PlatformData;
