@@ -35,6 +35,7 @@ function PlatformData() {
         codeforces(),
       ]);
 
+      
       const updatedData = [leetcodeData, codeforcesData, ...platformsData];
       setRenderedPlatforms(updatedData);
       setDataFetched(true);
