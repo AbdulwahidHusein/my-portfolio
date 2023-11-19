@@ -1,7 +1,7 @@
 [
   {
     "title": "Quiz Me",
-    "image": "./projectImages/quizme.png",
+    "image": "../../images/projectImages/quizme.png",
     "description": "Quiz Me is a web-based application and Telegram bot that harnesses the power of generative AI to transform educational materials into engaging and interactive quizzes. It not only converts the content but also tracks students' progress and delivers personalized learning experiences. Additionally, Quiz Me supports competitive learning by enabling users to participate in quizzes and view scoreboards to gauge their performance relative to others.",
     "technologies": "Django | javascript | Bootstrap | HTML",
     "github": "https://github.com/AbdulwahidHusein/A2SVGenerativeAi",
