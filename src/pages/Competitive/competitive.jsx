@@ -12,7 +12,7 @@ const platformsData = [
     rank: "50000",
     totalSubmissions: "-",
     totalAcceptedSubmissions: "-",
-    companyLogo: "./companyImages/hackerrank.png",
+    companyLogo: require("../../companyImages/hackerrank.png"),
   },
   {
     company: "Open Katties",
@@ -20,7 +20,7 @@ const platformsData = [
     rank: "50000",
     totalSubmissions: "-",
     totalAcceptedSubmissions: "-",
-    companyLogo: "./companyImages/katties.png",
+    companyLogo: require("../../companyImages/katties.png"),
   },
 ];
 

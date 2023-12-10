@@ -14,7 +14,7 @@ export function leetcode(username) {
         hard: data.hardSolved,
         totalAcceptedSubmissions:data.totalSubmissions[0].count,
         totalSubmissions: data.totalSubmissions[0].submissions,
-        companyLogo: "./companyImages/leetcode.png",
+        companyLogo: require("../../companyImages/leetcode.png"),
       };
       return res;
     })
@@ -37,7 +37,7 @@ export function codeforces(){
         hard: response.data.hardSolved,
         totalAcceptedSubmissions:response.data.result.length,
         totalSubmissions:2*response.data.result.length,
-        companyLogo: "./companyImages/codeforces.png",
+        companyLogo: require("../../companyImages/codeforces.png"),
       };
       return res;
     }

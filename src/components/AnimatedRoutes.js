@@ -5,7 +5,6 @@ import About from "../pages/about/About";
 import Portfolio from "../pages/portfolio/Portfolio";
 import Contact from "../pages/contact/Contact";
 import PageNotFound from "../pages/404/PageNotFound";
-import Blog from "../pages/blog/blog";
 import PlatformData from "../pages/Competitive/competitive";
 
 const AnimatedRoutes = ({ personalDetails}) => {

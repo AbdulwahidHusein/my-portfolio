@@ -1,6 +1,7 @@
-import projectData from "./projectsData.json";
+import { projectData } from "./projectsData";
 import Project from "../../components/Project";
 import PageHeader from "../../components/PageHeader";
+
 
 const Portfolio = () => {
   const ProjectList = () =>

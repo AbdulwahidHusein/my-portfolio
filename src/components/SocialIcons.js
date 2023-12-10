@@ -13,7 +13,7 @@ const SocialIcons = () => {
       <a className="icon" style={styles.icon} href="https://github.com/AbdulwahidHusein">
         <i className="fa-brands fa-github" aria-hidden="true" title="My' GitHub Profile"></i>
       </a>
-      <a className="icon" style={styles.icon} href="https://www.linkedin.com/AbdulwahidHussen/">
+      <a className="icon" style={styles.icon} href="https://www.linkedin.com/in/abdulwahidhussen/">
         <i className="fa-brands fa-linkedin" aria-hidden="true" title="My' LinkedIn Profile"></i>
       </a>
       <a className="icon" style={styles.icon} href="https://www.instagram.com/">
